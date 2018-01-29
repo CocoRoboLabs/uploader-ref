@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript">
+    window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);
+    </script>
+    <base target="_parent" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var actionId = 48;
+        var metaData = {
+            "url": window.location.pathname,
+            "parent": (window.location != window.parent.location) ? document.referrer : document.location['href']
+        };
+        createLog(actionId, metaData);
+    });
+    </script>
+</head>
+
+<body onload="prettyPrint()" style="background: transparent; padding: 0;">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://codebender.cc/js/dropzone.min.js?v56"></script>
+    <!-- Le javascript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src=https://codebender.cc/walkthrough/lawnchair-0.6.4.min.js?v56></script>
+    <script src="https://codebender.cc/bootstrap-filestyle.min.js?v56" type="text/javascript"></script>
+    <script type="text/javascript">
+    (function() {
+        var p = [],
+            w = window,
+            d = document,
+            e = f = 0;
+        p.push('ua=' + encodeURIComponent(navigator.userAgent));
+        e |= w.ActiveXObject ? 1 : 0;
+        e |= w.opera ? 2 : 0;
+        e |= w.chrome ? 4 : 0;
+        e |= 'getBoxObjectFor' in d || 'mozInnerScreenX' in w ? 8 : 0;
+        e |= ('WebKitCSSMatrix' in w || 'WebKitPoint' in w || 'webkitStorageInfo' in w || 'webkitURL' in w) ? 16 : 0;
+        e |= (e & 16 && ({}.toString).toString().indexOf("\n") === -1) ? 32 : 0;
+        p.push('e=' + e);
+        f |= 'sandbox' in d.createElement('iframe') ? 1 : 0;
+        f |= 'WebSocket' in w ? 2 : 0;
+        f |= w.Worker ? 4 : 0;
+        f |= w.applicationCache ? 8 : 0;
+        f |= w.history && history.pushState ? 16 : 0;
+        f |= d.documentElement.webkitRequestFullScreen ? 32 : 0;
+        f |= 'FileReader' in w ? 64 : 0;
+        p.push('f=' + f);
+        p.push('r=' + Math.random().toString(36).substring(7));
+        p.push('w=' + screen.width);
+        p.push('h=' + screen.height);
+        var s = d.createElement('script');
+        s.src = 'javascript/detect.js' + p.join('&');
+        d.getElementsByTagName('head')[0].appendChild(s);
+    })();
+
+    function createLog(actionId, metaData, callback) {
+        if (typeof callback === 'function') {
+            callback();
+        }
+    }
+
+    function setOperationOutputMessage(message) {
+        var $cbCfOperationOutput = $('#cb_cf_operation_output');
+        $cbCfOperationOutput.html(message);
+        if (message.length > 0) {
+            $cbCfOperationOutput.removeClass('new-message').width();
+            $cbCfOperationOutput.addClass('new-message');
+        }
+    }
+
+    $(document).on('click', '.close-flash-notice', function(event) {
+        $(event.target).closest('.alert').remove();
+    });
+
+    /**
+     * compilerflasher URLs
+     * @type {String}
+     */
+    if (typeof window.codebender !== 'object') {
+        window.codebender = {};
+    }
+    window.codebender.compilerflasher = {
+        staticPlugin: 'https://codebender.cc/static/plugin',
+        pluginMsi: 'https://codebender.cc' + '/Codebendercc.msi',
+        pluginXpi: 'https://codebender.cc' + '/codebender.xpi',
+        utilitiesCompile: "https://codebender.cc/utilities/compile/",
+        bootloader: 'https://codebender.cc' + '/bootloader/',
+        listBoards: "https://codebender.cc/board/listboards",
+        listProgrammers: "https://codebender.cc/board/programmers",
+        bfFirefoxClient: "javascript/bf-firefox-client.js",
+        iframeChromeClient: "javascript/iframe-chrome-client.js",
+        chromeClient: "javascript/chrome-client.js",
+        serialMonitorSection: "\x3Cstyle\x3E\x0A\x20\x20\x20\x20\x23serial_monitor_content\x20\x7B\x0A\x20\x20\x20\x20\x20\x20\x20\x20display\x3A\x20none\x3B\x0A\x20\x20\x20\x20\x7D\x0A\x0A\x20\x20\x20\x20\x23serial_hud\x20\x7B\x0A\x20\x20\x20\x20\x20\x20\x20\x20overflow\x2Dy\x3A\x20auto\x3B\x0A\x20\x20\x20\x20\x7D\x0A\x0A\x20\x20\x20\x20\x23serial_monitor_hud_and_autoscroll\x20\x7B\x0A\x20\x20\x20\x20\x20\x20\x20\x20display\x3A\x20inline\x2Dblock\x3B\x0A\x20\x20\x20\x20\x7D\x0A\x0A\x20\x20\x20\x20\x23serial\x2Dchecboxes\x20\x7B\x0A\x20\x20\x20\x20\x20\x20\x20\x20display\x3A\x20inline\x2Dblock\x3B\x0A\x20\x20\x20\x20\x7D\x0A\x0A\x20\x20\x20\x20\x23serial\x2Dchecboxes\x20\x3E\x20label\x20\x7B\x0A\x20\x20\x20\x20\x20\x20\x20\x20margin\x2Dbottom\x3A\x200\x3B\x0A\x20\x20\x20\x20\x7D\x0A\x0A\x20\x20\x20\x20\x23autoscroll_label\x20\x7B\x0A\x20\x20\x20\x20\x20\x20\x20\x20position\x3A\x20relative\x3B\x0A\x20\x20\x20\x20\x20\x20\x20\x20top\x3A\x208px\x3B\x0A\x20\x20\x20\x20\x7D\x0A\x0A\x20\x20\x20\x20\x23autoscroll_check\x20\x7B\x0A\x20\x20\x20\x20\x20\x20\x20\x20display\x3A\x20block\x3B\x0A\x20\x20\x20\x20\x7D\x0A\x0A\x20\x20\x20\x20\x23echo_label\x20\x7B\x0A\x20\x20\x20\x20\x20\x20\x20\x20position\x3A\x20relative\x3B\x0A\x20\x20\x20\x20\x20\x20\x20\x20top\x3A\x203px\x3B\x0A\x20\x20\x20\x20\x7D\x0A\x0A\x20\x20\x20\x20.serial\x2Dmonitor\x2Decho\x20\x7B\x0A\x20\x20\x20\x20\x20\x20\x20\x20display\x3A\x20inline\x2Dblock\x3B\x0A\x20\x20\x20\x20\x20\x20\x20\x20color\x3A\x20\x23FF0000\x3B\x0A\x20\x20\x20\x20\x7D\x0A\x0A\x20\x20\x20\x20\x23serial\x2Dline\x2Dendings\x20\x7B\x0A\x20\x20\x20\x20\x20\x20\x20\x20width\x3A\x20130px\x3B\x0A\x20\x20\x20\x20\x20\x20\x20\x20margin\x2Dbottom\x3A\x2010px\x3B\x0A\x20\x20\x20\x20\x7D\x0A\x3C\x2Fstyle\x3E\x0A\x0A\x3Cdiv\x20class\x3D\x22serial\x2Dmonitor\x2Dcontainer\x22\x3E\x0A\x20\x20\x20\x20\x3Cdiv\x20id\x3D\x22serial_monitor_content\x22\x3E\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x3Cdiv\x20id\x3D\x22serial_monitor_hud_and_autoscroll\x22\x3E\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x3Cspan\x20id\x3D\x22serial\x2Dchecboxes\x22\x3E\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3Clabel\x20id\x3D\x22autoscroll_label\x22\x20class\x3D\x22checkbox\x22\x3E\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3Cinput\x20id\x3D\x27autoscroll_check\x27\x20type\x3D\x22checkbox\x22\x20checked\x3E\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Autoscroll\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x2Flabel\x3E\x0A\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3Clabel\x20id\x3D\x22echo_label\x22\x20class\x3D\x22checkbox\x22\x3E\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3Cinput\x20id\x3D\x27echo_check\x27\x20type\x3D\x22checkbox\x22\x3E\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Echo\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x2Flabel\x3E\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x2Fspan\x3E\x0A\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3Cselect\x20id\x3D\x22serial\x2Dline\x2Dendings\x22\x3E\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3Coption\x20value\x3D\x22nle\x22\x3ENo\x20line\x20ending\x3C\x2Foption\x3E\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3Coption\x20value\x3D\x22nl\x22\x3ENewline\x3C\x2Foption\x3E\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3Coption\x20value\x3D\x22cr\x22\x3ECarriage\x20return\x3C\x2Foption\x3E\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3Coption\x20value\x3D\x22nlcr\x22\x20selected\x3D\x22selected\x22\x3EBoth\x20NL\x20\x26\x20CR\x3C\x2Foption\x3E\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x2Fselect\x3E\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x2Fdiv\x3E\x0A\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x3Cdiv\x20class\x3D\x22input\x2Dappend\x22\x3E\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3Cinput\x20id\x3D\x22text2send\x22\x20type\x3D\x22text\x22\x20placeholder\x3D\x22Type\x20a\x20message\x22\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20onkeydown\x3D\x22compilerflasher.pluginHandler.serialSendOnEnter\x28event\x29\x22\x3E\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3Cbutton\x20id\x3D\x22serial_send\x22\x20onclick\x3D\x22compilerflasher.pluginHandler.serialSend\x28\x29\x22\x20class\x3D\x22btn\x22\x20title\x3D\x22Send\x20Message\x22\x3E\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Send\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x2Fbutton\x3E\x0A\x20\x20\x20\x20\x20\x20\x20\x20\x3C\x2Fdiv\x3E\x0A\x20\x20\x20\x20\x3C\x2Fdiv\x3E\x0A\x0A\x20\x20\x20\x20\x3Cpre\x20id\x3D\x22serial_hud\x22\x20class\x3D\x22well\x22\x3E\x3C\x2Fpre\x3E\x0A\x3C\x2Fdiv\x3E\x0A"
+    };
+
+    window.codebender.algolia = {
+        applicationKey: 'DA86WRM5TA',
+        searchOnlyKey: '8594006ceb348fc84829b4290adcb0f3',
+        prefix: 'cb_live',
+        image: 'https://codebender.cc/images/algolia.png?v56'
+    };
+    </script>
+    <script src="https://codebender.cc/js/algolia.min.js?v56"></script>
+    <script src="https://codebender.cc/js/typeahead.js?v56"></script>
+    <script src="https://codebender.cc/js/hogan.js?v56"></script>
+    <script type="text/javascript" src="https://codebender.cc/cache/js/common.js?v56"></script>
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-36583501-1', 'codebender.cc');
+    ga('send', 'pageview');
+    </script>
+    <link href='//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.css' type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/project_wrapper.css" />
+    <script src='//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js' type='text/javascript'></script>
+    <script type="text/javascript" src="https://codebender.cc/js/jquery.browser.min.js?v56"></script>
+    <script type="text/javascript" src="https://codebender.cc/js/jquery.ba-bbq.min.js?v56"></script>
+    <script type="text/javascript" src="https://codebender.cc/js/min.natural-compare.js?v56"></script>
+    <script type="text/javascript" src="https://codebender.cc/js/mousetrap.min.js?v56"></script>
+    <script type="text/javascript" src="https://codebender.cc/js/mousetrap-global-bind.min.js?v56"></script>
+    <!-- Ace editor -->
+    <script src="https://codebender.cc/js/ace.js?v56" type="text/javascript" charset="utf-8"></script>
+    <script src="https://codebender.cc/js/ext-language_tools.js?v56" type="text/javascript" charset="utf-8"></script>
+    <!-- Editor page -->
+    <script type="text/javascript" src="https://codebender.cc/js/jquery.jeditable.mini.js?v56"></script>
+    <script type="text/javascript" src="https://codebender.cc/js/mousetrap.min.js?v56"></script>
+    <script type="text/javascript" src="https://codebender.cc/js/mousetrap-global-bind.min.js?v56"></script>
+    <script src="https://codebender.cc/js/jquery.nicescroll.min.js?v56" type="text/javascript"></script>
+    <script src="https://codebender.cc/js/pnotify.custom.min.js?v56" type="text/javascript"></script>
+    <!-- Description editor markdown -->
+    <script src="https://codebender.cc/js/to-markdown.js?v56" type="text/javascript"></script>
+    <script src="https://codebender.cc/js/markdown.js?v56" type="text/javascript"></script>
+    <script src="https://codebender.cc/js/bootstrap-markdown.js?v56" type="text/javascript"></script>
+    <script src="https://codebender.cc/js/Markdown.Converter.js?v56" type="text/javascript"></script>
+    <script type="text/javascript">
+    /**
+     * editor URLs
+     * @type {String}
+     */
+
+    if (!window.codebender) {
+        window.codebender = {};
+    }
+    window.codebender.editor = {
+        autocomplete: 'https://codebender.cc/utilities/autocomplete/',
+        environmentPrefix: 'cb_live',
+        index: 'https://codebender.cc/home',
+        librarySearch: 'https://codebender.cc/library_search',
+        // personalLibraryFiles: 'https://codebender.cc/utilities/personalLibraryFiles',
+        libraryKeywords: 'https://codebender.cc/utilities/libraryKeywords',
+        systemLibrariesFileList: 'https://codebender.cc/utilities/systemLibrariesFileList',
+        astyle: 'https://codebender.cc/astyle.js?v56',
+        oneUploaderEndPoint: 'https://codebender.cc/_uploader/files/upload',
+        getOembedHtml: 'https://codebender.cc/utilities/oembedContent'
+    };
+    </script>
+    <script type="text/javascript" src="https://codebender.cc/embed/cbcf-frontend.min.js?v56"></script>
+    <script type="text/javascript">
+    window.compilerflasherStart = true;
+    </script>
+    <script type="text/javascript" src="https://codebender.cc/cache/js/editor.js?v56"></script>
+    <script type="text/javascript">
+    if (!window.codebender) {
+        window.codebender = {};
+    }
+
+    window.codebender.projectWrapper = {
+        index: '/',
+        sidebarOpen: 'https://codebender.cc/images/sidebar-open.png?v56',
+        sidebarClose: 'https://codebender.cc/images/sidebar-close.png?v56'
+    };
+
+    window.codebender.projectWrapper.type = false;
+    window.codebender.projectWrapper.exampleWithSubcategory = false;
+
+
+    window.codebender.projectWrapper.roleUser = false;
+    window.codebender.projectWrapper.roleUser = true;
+
+    window.codebender.projectWrapper.roleAdmin = false;
+
+    window.codebender.projectWrapper.json = '\x7B\x22project\x22\x3A\x7B\x22name\x22\x3A\x22uploader\x22,\x22url\x22\x3A\x22https\x3A\x5C\x2F\x5C\x2Fcodebender.cc\x5C\x2Fsketch\x3A623653\x22\x7D,\x22user\x22\x3A\x7B\x22name\x22\x3A\x22cocoblockly\x22,\x22url\x22\x3A\x22https\x3A\x5C\x2F\x5C\x2Fcodebender.cc\x5C\x2Fuser\x5C\x2Fcocoblockly\x22\x7D,\x22clone_url\x22\x3A\x22https\x3A\x5C\x2F\x5C\x2Fcodebender.cc\x5C\x2Futilities\x5C\x2Fclone\x5C\x2F623653\x22,\x22download_url\x22\x3A\x22https\x3A\x5C\x2F\x5C\x2Fcodebender.cc\x5C\x2Futilities\x5C\x2Fdownload\x5C\x2F623653\x22,\x22star_url\x22\x3A\x22https\x3A\x5C\x2F\x5C\x2Fcodebender.cc\x5C\x2Futilities\x5C\x2Ftogglestarproject\x5C\x2F623653\x22,\x22projectLastModified\x22\x3A1513068455,\x22projectCreated\x22\x3A1513068446,\x22files\x22\x3A\x5B\x7B\x22filename\x22\x3A\x22uploader.ino\x22,\x22code\x22\x3A\x22void\x20setup\x28\x29\x5Cn\x7B\x5Cn\x5Ct\x5Cn\x7D\x5Cn\x5Cnvoid\x20loop\x28\x29\x5Cn\x7B\x5Cn\x5Ct\x5Cn\x7D\x5Cn\x22\x7D\x5D,\x22isStarred\x22\x3Afalse,\x22stars\x22\x3A0\x7D';
+
+    window.codebender.schemeAndhttpHost = 'https://codebender.cc';
+    </script>
+    <script type="text/javascript" src="https://codebender.cc/cache/js/project_wrapper.js?v56"></script>
+    <div id="codeBender_embed_wrapper">
+        <div id="codeBender_embed_header">
+            <div class="shadow"></div>
+            <div class="names">
+                <span class="projectName">Project Name</span> by <span class="userName">User Name</span>
+            </div>
+            <a class="clone-link" target="_blank" href="#"><i class="icon-copy"></i> Clone & Edit</a>
+            <a class="download-link" href="#"><i class="icon-download-alt"></i> Download</a>
+            <a id="edit-button" href="javascript:void(0);"><i class="icon-edit"></i> Edit</a>
+        </div>
+        <div id="codeBender_embed_sidebar">
+            <div class="description"></div>
+            <div class="fileWrapper" id="file_list">
+            </div>
+        </div>
+        <div id="codeBender_embed_codeContainer">
+            <div id="codeBender_embed_codeWrapper"></div>
+            <div id="compile-output-container">
+                <a id="compile-output-close-button" href="javascript:void(0)"><i class="icon-remove"></i></a>
+                <pre id="compiler-wrapper">
+                <span id="compile_output"></span>
+            </pre>
+            </div>
+        </div>
+        <div id="codeBender_embed_footer">
+            <img id="sidebar-toggle" src="https://codebender.cc/images/sidebar-open.png?v56">
+            <div id="codeBender_flashing_plugin">
+                <select id="cb_cf_boards"></select>
+                <select id="cb_cf_ports"></select>
+                <button class="btn btn-success" id="cb_cf_flash_btn" disabled="disabled">
+                    <i class="icon-arrow-right"></i> Run on Arduino
+                </button>
+                <p id="cb_cf_operation_output"></p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    window.NREUM || (NREUM = {});
+    NREUM.info = { "beacon": "bam.nr-data.net", "licenseKey": "2cbf0ff869", "applicationID": "8738973", "transactionName": "ZgMBMhQAXEdYB0FbV19JIgUSCF1aFidaVl1TAw0CAxN1UVcBR1tbcxMNAgoEbVFUBlBWZ0EUDAwDAkY=", "queueTime": 0, "applicationTime": 89, "atts": "SkQCRFwaT0k=", "errorBeacon": "bam.nr-data.net", "agent": "" }
+    </script>
+</body>
+
+</html>
